@@ -8,10 +8,10 @@
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cloudpoc</groupId>
-    <artifactId>poc-emp-microservice</artifactId>
+    <groupId>com.banigeo</groupId>
+    <artifactId>emp-microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>poc-emp-microservice</name>
+    <name>emp-microservice</name>
     <description>Cloud POC for employees microservice</description>
     <properties>
         <java.version>17</java.version>

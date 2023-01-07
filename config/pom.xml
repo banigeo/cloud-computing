@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.banigeo</groupId>
-	<artifactId>cloud-poc-config</artifactId>
+	<artifactId>cloud-config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cloud-poc-config</name>
+	<name>cloud-config</name>
 	<description>Cloud Spring Boot Configuration</description>
 	<properties>
 		<java.version>17</java.version>

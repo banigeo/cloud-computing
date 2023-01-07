@@ -1,0 +1,63 @@
+version: '3.7'
+
+networks:  
+  cloud-network:  
+    name: cloud-network  
+    driver: bridge
+    
+services:
+  config-server:
+    build: ./config-server
+    image: cloud-config:0.0.1-SNAPSHOT
+    ports:
+      - "8070:8070"
+  eureka-server:
+    build: ./eureka-server
+    image: naming-server:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    networks:
+      - cloud-network
+    environment:
+      eureka.instance.hostname: localhost
+      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+    depends_on:
+     - config-server
+  job-service:
+    build: ./job-microservice
+    image: job-microservice:0.0.1-SNAPSHOT
+    ports:
+      - "8081:8081"
+    networks:
+      - cloud-network
+    depends_on:
+      - config-server
+      - eureka-server
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+  dept-service:
+    build: ./dept-microservice
+    image: dept-microservice:0.0.1-SNAPSHOT
+    ports:
+      - "8083:8083"
+    networks:
+      - cloud-network
+    depends_on:
+      - config-server
+      - eureka-server
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+  emp-service:
+    build: ./emp-microservice
+    image: emp-microservice:0.0.1-SNAPSHOT
+    ports:
+      - "8082:8082"
+    networks:
+      - cloud-network
+    depends_on:
+      - config-server
+      - eureka-server
+      - dept-service
+      - job-service
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka

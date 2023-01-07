@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "66c1e41a-3b07-4980-8183-de7f881a901c",
+		"name": "HTTP_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. DEPT",
+			"item": [
+				{
+					"name": "1.1 Create Dept HR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"departmentId\": 4,\r\n        \"departmentName\": \"HumanResources\",\r\n        \"location\": {\r\n            \"locationId\": 4,\r\n            \"streetAddress\": \"46 Mohammed El Kouly\",\r\n            \"postalCode\": \"54534\",\r\n            \"city\": \"Cairo\",\r\n            \"country\": {\r\n                \"countryId\": 4,\r\n                \"region\": {\r\n                    \"regionId\": 4,\r\n                    \"name\": \"Middle East and Africa\"\r\n                },\r\n                \"name\": \"Egypt\"\r\n            },\r\n            \"department\": null\r\n        },\r\n        \"locations\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Create Dept Purchasing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"departmentId\": 3,\r\n        \"departmentName\": \"Purchasing\",\r\n        \"location\": {\r\n            \"locationId\": 3,\r\n            \"streetAddress\": \"2014 Jabberwocky Rd\",\r\n            \"postalCode\": \"26192\",\r\n            \"city\": \"San Francisco\",\r\n            \"country\": {\r\n                \"countryId\": 3,\r\n                \"region\": {\r\n                    \"regionId\": 2,\r\n                    \"name\": \"Americas\"\r\n                },\r\n                \"name\": \"USA\"\r\n            },\r\n            \"department\": null\r\n        },\r\n        \"locations\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Create Dept Marketing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"departmentId\": 2,\r\n        \"departmentName\": \"Marketing\",\r\n        \"location\": {\r\n            \"locationId\": 2,\r\n            \"streetAddress\": \"2017 Shinjuku-ku\",\r\n            \"postalCode\": \"1689\",\r\n            \"city\": \"Tokyo\",\r\n            \"country\": {\r\n                \"countryId\": 2,\r\n                \"region\": {\r\n                    \"regionId\": 3,\r\n                    \"name\": \"Asia\"\r\n                },\r\n                \"name\": \"Japan\"\r\n            },\r\n            \"department\": null\r\n        },\r\n        \"locations\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.4 Create Dept Administration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"departmentId\": 1,\r\n        \"departmentName\": \"Administration\",\r\n        \"location\": {\r\n            \"locationId\": 1,\r\n            \"streetAddress\": \"1297 Via Cola di Rie\",\r\n            \"postalCode\": \"00989\",\r\n            \"city\": \"Roma\",\r\n            \"country\": {\r\n                \"countryId\": 1,\r\n                \"region\": {\r\n                    \"regionId\": 1,\r\n                    \"name\": \"Europe\"\r\n                },\r\n                \"name\": \"Italy\"\r\n            },\r\n            \"department\": null\r\n        },\r\n        \"locations\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.5 Get Dept Administration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/department/Administration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department",
+								"Administration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.6 Get Dept Marketing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/department/Marketing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department",
+								"Marketing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.7 List All Departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/department/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"department",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. JOB",
+			"item": [
+				{
+					"name": "2.1 Create Job PR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"title\": \"Human_Resources_Representative\",\r\n        \"min\": 4000.0,\r\n        \"max\": 9000.0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Create Job HR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"Public_Relations_Representative\",\r\n        \"min\": 4500.0,\r\n        \"max\": 10500.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 Create Job Marketing Mgmt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"Marketing_Manager\",\r\n        \"min\": 9000.0,\r\n        \"max\": 15000.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.4 Create Job Programmer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"title\": \"Programmer\",\r\n        \"min\": 4000,\r\n        \"max\": 100000.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.5 Get Job Programmer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/job/Programmer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job",
+								"Programmer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.6 Get Job Human Resources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/job/Human_Resources_Representative",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job",
+								"Human_Resources_Representative"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.7 List All Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/job/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. EMP",
+			"item": [
+				{
+					"name": "3.1 Create Emp Programmer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\":\"George\",\r\n\"lastName\":\"Lars\",\r\n\"salary\":9000.0,\r\n\"email\":\"GLARS@EMP.COM\",\r\n\"phone\":\"515.124.43697\",\r\n\"department\":\"Administration\",\r\n\"job\":\"Programmer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Create Emp Marketing Manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Chen\",\r\n        \"salary\": 9000.0,\r\n        \"email\": \"JCHEN@EMP.COM\",\r\n        \"phone\": \"515.124.4269\",\r\n        \"department\": \"Marketing\",\r\n        \"job\": \"Marketing_Manager\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 Create Emp HR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Nancy\",\r\n        \"lastName\": \"Greenberg\",\r\n        \"salary\": 8300.0,\r\n        \"email\": \"NGREENBE@EMP.COM\",\r\n        \"phone\": \"515.124.4569\",\r\n        \"department\": \"Purchasing\",\r\n        \"job\": \"Human_Resources_Representative\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.4 Create Emp PR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Daniel\",\r\n        \"lastName\": \"Faviet\",\r\n        \"salary\": 8100.0,\r\n        \"email\": \"DFAVIET@EMP.COM\",\r\n        \"phone\": \"515.124.4169\",\r\n        \"department\": \"HumanResources\",\r\n        \"job\": \"Public_Relations_Representative\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.5 Update Emp Programmer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\":\"George\",\r\n\"lastName\":\"Lars\",\r\n\"salary\":9700.0,\r\n\"email\":\"GLARS@EMP.COM\",\r\n\"phone\":\"515.124.43699\",\r\n\"department\":\"Administration\",\r\n\"job\":\"Marketing_Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/employee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.6 Get Emp History - Programmer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/job/history/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"job",
+								"history",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.7 Get Employee By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/employee?firstName=George&lastName=Lars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "George"
+								},
+								{
+									"key": "lastName",
+									"value": "Lars"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.8 Get All Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

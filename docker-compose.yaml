@@ -21,6 +21,7 @@ services:
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
       MYSQL_TCP_PORT: 3306
+      
   dept-database:
     container_name: dept-database
     image: mysql:5.7
@@ -64,6 +65,7 @@ services:
       server.port: 8761
       eureka.instance.hostname: naming-server
       eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
+      
   cloud-config:
     container_name: cloud-config
     image: cloud-config:0.0.1-SNAPSHOT
@@ -75,6 +77,7 @@ services:
      - naming-server
     environment:
       server.port: 8070
+      
   job-service:
     container_name: job-microservice
     image: job-microservice:0.0.1-SNAPSHOT
@@ -97,6 +100,7 @@ services:
       spring.datasource.password: password
       spring.jpa.database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
       spring.jpa.hibernate.ddl-auto: update
+      
   dept-service:
     container_name: dept-microservice
     image: dept-microservice:0.0.1-SNAPSHOT
@@ -119,6 +123,7 @@ services:
       spring.datasource.password: password
       spring.jpa.database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
       spring.jpa.hibernate.ddl-auto: update
+      
   emp-service:
     container_name: emp-microservice
     image: emp-microservice:0.0.1-SNAPSHOT

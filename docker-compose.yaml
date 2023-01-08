@@ -1,46 +1,77 @@
-version: '3.7'
+version: '3.8'
 
+networks:  
+  inner-network:  
+    name: inner-network  
+    driver: bridge
+    
 services:
   naming-server:
     container_name: naming-server
     image: naming-server:0.0.1-SNAPSHOT
-    network_mode: host
     ports:
       - "8761:8761"
+    networks:
+      - inner-network
+    environment:
+      server.port: 8761
+      eureka.instance.hostname: naming-server
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
   cloud-config:
     container_name: cloud-config
     image: cloud-config:0.0.1-SNAPSHOT
-    network_mode: host
     ports:
       - "8070:8070"
+    networks:
+      - inner-network
     depends_on:
      - naming-server
+    environment:
+      server.port: 8070
   job-service:
     container_name: job-microservice
     image: job-microservice:0.0.1-SNAPSHOT
-    network_mode: host
+    restart: on-failure
     ports:
       - "8081:8081"
+    networks:
+      - inner-network
     depends_on:
       - naming-server
       - cloud-config
+    environment:
+      server.port: 8081
+      spring.config.import: 'configserver:http://cloud-config:8070/'
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
   dept-service:
     container_name: dept-microservice
     image: dept-microservice:0.0.1-SNAPSHOT
-    network_mode: host
+    restart: on-failure
     ports:
       - "8083:8083"
+    networks:
+      - inner-network
     depends_on:
       - naming-server
       - cloud-config
+    environment:
+      server.port: 8083
+      spring.config.import: 'configserver:http://cloud-config:8070/'
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka
   emp-service:
     container_name: emp-microservice
     image: emp-microservice:0.0.1-SNAPSHOT
-    network_mode: host
+    restart: on-failure
     ports:
       - "8082:8082"
+    networks:
+      - inner-network
     depends_on:
       - naming-server
       - cloud-config
       - dept-service
       - job-service
+    environment:
+      server.port: 8082
+      spring.config.import: 'configserver:http://cloud-config:8070/'
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8761/eureka

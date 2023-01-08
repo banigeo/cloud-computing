@@ -1,63 +1,46 @@
 version: '3.7'
 
-networks:  
-  cloud-network:  
-    name: cloud-network  
-    driver: bridge
-    
 services:
-  config-server:
-    build: ./config-server
-    image: cloud-config:0.0.1-SNAPSHOT
-    ports:
-      - "8070:8070"
-  eureka-server:
-    build: ./eureka-server
+  naming-server:
+    container_name: naming-server
     image: naming-server:0.0.1-SNAPSHOT
+    network_mode: host
     ports:
       - "8761:8761"
-    networks:
-      - cloud-network
-    environment:
-      eureka.instance.hostname: localhost
-      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+  cloud-config:
+    container_name: cloud-config
+    image: cloud-config:0.0.1-SNAPSHOT
+    network_mode: host
+    ports:
+      - "8070:8070"
     depends_on:
-     - config-server
+     - naming-server
   job-service:
-    build: ./job-microservice
+    container_name: job-microservice
     image: job-microservice:0.0.1-SNAPSHOT
+    network_mode: host
     ports:
       - "8081:8081"
-    networks:
-      - cloud-network
     depends_on:
-      - config-server
-      - eureka-server
-    environment:
-      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+      - naming-server
+      - cloud-config
   dept-service:
-    build: ./dept-microservice
+    container_name: dept-microservice
     image: dept-microservice:0.0.1-SNAPSHOT
+    network_mode: host
     ports:
       - "8083:8083"
-    networks:
-      - cloud-network
     depends_on:
-      - config-server
-      - eureka-server
-    environment:
-      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka
+      - naming-server
+      - cloud-config
   emp-service:
-    build: ./emp-microservice
+    container_name: emp-microservice
     image: emp-microservice:0.0.1-SNAPSHOT
+    network_mode: host
     ports:
       - "8082:8082"
-    networks:
-      - cloud-network
     depends_on:
-      - config-server
-      - eureka-server
+      - naming-server
+      - cloud-config
       - dept-service
       - job-service
-    environment:
-      eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka

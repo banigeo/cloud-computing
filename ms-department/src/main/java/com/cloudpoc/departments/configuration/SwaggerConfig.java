@@ -12,7 +12,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI().info(new Info().title("Spring Cloud Poc")
                 .version("1")
-                .description("Employee Services")
+                .description("Department Services")
                 .termsOfService("http://swagger.io/terms")
                 .license(new License()
                         .name("Apache 2.0")

@@ -9,7 +9,6 @@ import com.banigeo.job.dto.JobResponse;
 import com.banigeo.job.exception.JobAlreadyPresentException;
 import com.banigeo.job.exception.SalaryRangeMissmatchException;
 import com.banigeo.job.mapper.JobMapper;
-import com.banigeo.job.model.JobTitle;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class JobService {
     private JobMapper jobMapper;
 
     public JobResponse getJob(String jobName) {
-        Job job = jobRepository.findByJobTitle(JobTitle.valueOf(jobName)).orElseThrow(JobNotFoundException::new);
+        Job job = jobRepository.findByJobTitle(jobName).orElseThrow(JobNotFoundException::new);
         return jobMapper.fromEntityToResponse(job);
     }
 
@@ -32,7 +31,7 @@ public class JobService {
         //chek if employee has a salary in range with assigned job title
         jobRepository.findJobsBySalaryRange(salary)
                 .stream()
-                .filter(t -> JobTitle.valueOf(jobTitle).equals(t.getJobTitle()))
+                .filter(t -> jobTitle.equals(t.getJobTitle()))
                 .findFirst().orElseThrow(SalaryOutOfRangeException::new);
     }
 
@@ -60,7 +59,7 @@ public class JobService {
         if(request.getMax() < request.getMin()) {
             throw new SalaryRangeMissmatchException();
         }
-        jobRepository.findByJobTitle(JobTitle.valueOf(request.getTitle()))
+        jobRepository.findByJobTitle(request.getTitle())
                 .ifPresent((Job j) -> { throw new JobAlreadyPresentException(); });
     }
 }

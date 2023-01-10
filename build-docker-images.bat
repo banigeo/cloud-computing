@@ -13,5 +13,8 @@ docker build -t dept-microservice:0.0.1-SNAPSHOT . && ^
 cd ../ms-employee && ^
 mvn -DskipTests clean install && ^
 docker build -t emp-microservice:0.0.1-SNAPSHOT . && ^
+cd ../webapp && ^
+mvn -DskipTests clean install && ^
+docker build -t webapp:0.0.1-SNAPSHOT . && ^
 cd ..
 

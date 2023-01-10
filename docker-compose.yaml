@@ -151,3 +151,41 @@ services:
       spring.datasource.password: password
       spring.jpa.database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
       spring.jpa.hibernate.ddl-auto: update
+      
+  auth-database:
+    container_name: auth-database
+    image: mysql:5.7
+    networks:
+      - inner-network
+    ports:
+      - '3319:3319'
+    expose:
+      - '3319'      
+    environment:
+      MYSQL_DATABASE: 'auth_db'
+      MYSQL_USER: 'auth_user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_TCP_PORT: 3319
+
+  webapp:
+    container_name: webapp
+    image: webapp:0.0.1-SNAPSHOT
+    ports:
+      - "8090:8090"
+    networks:
+      - inner-network
+    depends_on:
+      - auth-database
+      - dept-service
+      - job-service
+      - emp-service
+    environment:
+      server.port: 8090
+      eureka.client.serviceUrl.defaultZone: http://naming-server:8071/eureka
+      spring.datasource.url: jdbc:mysql://auth-database:3319/auth_db
+      spring.datasource.driver-class-name: com.mysql.jdbc.Driver
+      spring.datasource.username: auth_user
+      spring.datasource.password: password
+      spring.jpa.database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      spring.jpa.hibernate.ddl-auto: update

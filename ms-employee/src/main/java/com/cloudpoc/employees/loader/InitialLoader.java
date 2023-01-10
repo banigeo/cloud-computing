@@ -3,13 +3,17 @@ package com.cloudpoc.employees.loader;
 import com.cloudpoc.employees.model.Employee;
 import com.cloudpoc.employees.repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Component
+@Log
 public class InitialLoader implements CommandLineRunner {
 
     EmployeeRepository employeeRepository;
@@ -96,6 +100,14 @@ public class InitialLoader implements CommandLineRunner {
                         .department("Human Resources")
                         .currentJob("Programmer").build());
 
-        employeeRepository.saveAll(employees);
+        Set<String> existingEmployees = employeeRepository.findAll().stream().map(Employee::getEmailAddress).collect(Collectors.toSet());
+        Set<String> insertingEmployees = employees.stream().map(Employee::getEmailAddress).collect(Collectors.toSet());
+        insertingEmployees.removeAll(existingEmployees);
+
+        log.info("Setup employees");
+
+        employeeRepository.saveAll(employees.stream()
+                .filter(t -> insertingEmployees.contains(t.getEmailAddress()))
+                .collect(Collectors.toList()));
     }
 }

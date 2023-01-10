@@ -47,6 +47,12 @@ public class JobController {
         return result;
     }
 
+    @GetMapping(value = "/list2", produces = {"application/json"})
+    public List<JobResponse> getJobs2() {
+        List<JobResponse> result = jobService.getAllJobs();
+        return result;
+    }
+
     @PostMapping(produces = {"application/hal+json"})
     public ResponseEntity<JobResponse> createJob(@Valid @RequestBody JobRequest job) {
         JobResponse savedJob = jobService.createJob(job);

@@ -1,9 +1,7 @@
 package com.banigeo.job.service;
 
 import com.banigeo.job.dto.JobHistoryResponse;
-import com.banigeo.job.dto.JobResponse;
 import com.banigeo.job.model.JobHistory;
-import com.banigeo.job.model.JobTitle;
 import com.banigeo.job.repository.JobHistoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,7 +38,7 @@ public class JobHistoryService {
         List<JobHistory> history = getHistoryByEmployee(employeeId);
         JobHistory newHistory = JobHistory.builder()
                 .employeeId(employeeId)
-                .jobTitle(JobTitle.valueOf(jobName))
+                .jobTitle(jobName)
                 .salary(salary)
                 .start(LocalDateTime.now())
                 .build();

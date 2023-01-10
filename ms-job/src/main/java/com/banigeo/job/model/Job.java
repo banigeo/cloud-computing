@@ -18,8 +18,7 @@ public class Job {
     private Integer jobId;
 
     @NotNull
-    @Enumerated(value = EnumType.STRING)
-    private JobTitle jobTitle;
+    private String jobTitle;
 
     @NotNull
     @Min(0)
@@ -30,7 +29,7 @@ public class Job {
     private Double maxSalary;
 
 
-    public Job(JobTitle jobTitle, Double minSalary, Double maxSalary) {
+    public Job(String jobTitle, Double minSalary, Double maxSalary) {
         this.jobTitle = jobTitle;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;

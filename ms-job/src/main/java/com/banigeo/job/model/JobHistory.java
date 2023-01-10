@@ -26,7 +26,7 @@ public class JobHistory {
     private Integer employeeId;
 
     @NotNull
-    private JobTitle jobTitle;
+    private String jobTitle;
 
     private Double salary;
     private LocalDateTime start;

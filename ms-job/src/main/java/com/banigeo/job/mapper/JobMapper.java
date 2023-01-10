@@ -3,7 +3,6 @@ package com.banigeo.job.mapper;
 import com.banigeo.job.dto.JobRequest;
 import com.banigeo.job.dto.JobResponse;
 import com.banigeo.job.model.Job;
-import com.banigeo.job.model.JobTitle;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,18 +20,10 @@ public class JobMapper {
         return jr;
     }
 
-    public Job fromResponseToEntity(JobResponse response) {
-        return Job.builder()
-                .jobId(response.getId())
-                .jobTitle(JobTitle.valueOf(response.getTitle()))
-                .maxSalary(response.getMax())
-                .minSalary(response.getMin())
-                .build();
-    }
 
     public Job fromRequestToEntity(JobRequest request) {
         return Job.builder()
-                .jobTitle(JobTitle.valueOf(request.getTitle()))
+                .jobTitle(request.getTitle())
                 .maxSalary(request.getMax())
                 .minSalary(request.getMin())
                 .build();

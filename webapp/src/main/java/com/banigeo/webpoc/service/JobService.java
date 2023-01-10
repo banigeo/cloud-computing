@@ -5,7 +5,7 @@ import com.banigeo.webpoc.dto.job.JobResponse;
 import com.banigeo.webpoc.exception.job.JobAlreadyPresentException;
 import com.banigeo.webpoc.exception.job.JobNotFoundException;
 import com.banigeo.webpoc.exception.job.SalaryRangeMissmatchException;
-import com.banigeo.webpoc.rest.JobRestService;
+import com.banigeo.webpoc.proxy.JobRestService;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

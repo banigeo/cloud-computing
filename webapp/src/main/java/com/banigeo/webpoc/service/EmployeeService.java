@@ -4,8 +4,8 @@ import com.banigeo.webpoc.dto.employee.EmployeeRequest;
 import com.banigeo.webpoc.dto.employee.EmployeeResponse;
 import com.banigeo.webpoc.dto.history.JobHistoryResponse;
 import com.banigeo.webpoc.exception.employee.EmployeeNotFoundException;
-import com.banigeo.webpoc.rest.EmployeeRestService;
-import com.banigeo.webpoc.rest.JobRestService;
+import com.banigeo.webpoc.proxy.EmployeeRestService;
+import com.banigeo.webpoc.proxy.JobRestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

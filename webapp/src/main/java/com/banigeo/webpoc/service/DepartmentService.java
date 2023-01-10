@@ -2,7 +2,7 @@ package com.banigeo.webpoc.service;
 
 import com.banigeo.webpoc.exception.department.DepartmentNotFoundException;
 import com.banigeo.webpoc.model.Department;
-import com.banigeo.webpoc.rest.DepartmentRestService;
+import com.banigeo.webpoc.proxy.DepartmentRestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

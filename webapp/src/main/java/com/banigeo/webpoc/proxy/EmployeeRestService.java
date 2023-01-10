@@ -1,4 +1,4 @@
-package com.banigeo.webpoc.rest;
+package com.banigeo.webpoc.proxy;
 
 import com.banigeo.webpoc.dto.employee.EmployeeRequest;
 import com.banigeo.webpoc.dto.employee.EmployeeResponse;

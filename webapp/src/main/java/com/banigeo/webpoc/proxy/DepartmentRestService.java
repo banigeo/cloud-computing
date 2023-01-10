@@ -1,4 +1,4 @@
-package com.banigeo.webpoc.rest;
+package com.banigeo.webpoc.proxy;
 
 import com.banigeo.webpoc.model.Department;
 import org.springframework.cloud.openfeign.FeignClient;

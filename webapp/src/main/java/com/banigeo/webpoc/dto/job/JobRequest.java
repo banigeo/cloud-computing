@@ -24,7 +24,7 @@ public class JobRequest {
     @Min(value = 0, message = "Minimum salary has to be greater than 0")
     private Double min;
 
-    @NotNull(message = "Minimum salary is not present")
+    @NotNull(message = "Maximum salary is not present")
     @Min(value = 0, message = "Maximum salary has to be greater than 0")
     private Double max;
 }

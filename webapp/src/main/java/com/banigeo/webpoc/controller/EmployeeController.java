@@ -9,7 +9,6 @@ import com.banigeo.webpoc.service.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -61,7 +60,7 @@ public class EmployeeController {
         if (result.hasErrors()) {
             return "employeeRegister";
         }
-        EmployeeResponse savedEmployee = employeeService.createEmployee(request);
+        employeeService.createEmployee(request);
         return "redirect:/emp/list";
     }
 

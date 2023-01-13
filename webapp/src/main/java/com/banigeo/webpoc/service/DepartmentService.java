@@ -1,5 +1,7 @@
 package com.banigeo.webpoc.service;
 
+import com.banigeo.webpoc.dto.department.DepartmentRequest;
+import com.banigeo.webpoc.dto.department.DepartmentResponse;
 import com.banigeo.webpoc.exception.department.DepartmentNotFoundException;
 import com.banigeo.webpoc.model.Department;
 import com.banigeo.webpoc.proxy.DepartmentRestService;
@@ -21,5 +23,10 @@ public class DepartmentService {
 
     public List<Department> getDepartments() {
         return departmentRestService.getDepartments();
+    }
+
+    public DepartmentResponse createDepartment(DepartmentRequest request) {
+        DepartmentResponse department = departmentRestService.createDepartment(request).getBody();
+        return department;
     }
 }

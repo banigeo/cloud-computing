@@ -1,7 +1,6 @@
 package com.banigeo.webpoc.controller;
 
 import com.banigeo.webpoc.dto.job.JobRequest;
-import com.banigeo.webpoc.dto.job.JobResponse;
 import com.banigeo.webpoc.service.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -43,7 +42,7 @@ public class JobController {
         if (result.hasErrors()) {
             return "jobRegister";
         }
-        JobResponse savedJob = jobService.createJob(request);
+        jobService.createJob(request);
         return "redirect:/job/list";
     }
 

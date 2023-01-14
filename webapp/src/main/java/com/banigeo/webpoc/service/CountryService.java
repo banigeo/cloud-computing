@@ -3,7 +3,7 @@ package com.banigeo.webpoc.service;
 import com.banigeo.webpoc.dto.department.country.CountryRequest;
 import com.banigeo.webpoc.dto.department.country.CountryResponse;
 import com.banigeo.webpoc.exception.department.location.LocationNotFoundException;
-import com.banigeo.webpoc.proxy.CountryRestService;
+import com.banigeo.webpoc.proxy.DepartmentRestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,19 +14,19 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CountryService {
 
-    private CountryRestService countryRestService;
+    private DepartmentRestService departmentRestService;
 
     public List<CountryResponse> getCountries() {
-        return countryRestService.getCountries();
+        return departmentRestService.getCountries();
     }
 
     public CountryResponse getCountry(String name) {
-        return Optional.ofNullable(countryRestService.getCountry(name).getBody())
+        return Optional.ofNullable(departmentRestService.getCountry(name).getBody())
                 .orElseThrow(LocationNotFoundException::new);
     }
 
     public CountryResponse createCountry(CountryRequest country) {
-        CountryResponse response = countryRestService.createCountry(country).getBody();
+        CountryResponse response = departmentRestService.createCountry(country).getBody();
         return response;
     }
 }

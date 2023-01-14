@@ -3,7 +3,7 @@ package com.banigeo.webpoc.service;
 import com.banigeo.webpoc.dto.department.location.LocationRequest;
 import com.banigeo.webpoc.dto.department.location.LocationResponse;
 import com.banigeo.webpoc.exception.department.location.LocationNotFoundException;
-import com.banigeo.webpoc.proxy.LocationRestService;
+import com.banigeo.webpoc.proxy.DepartmentRestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +13,19 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class LocationService {
-    private LocationRestService locationRestService;
+    private DepartmentRestService departmentRestService;
 
     public List<LocationResponse> getLocations() {
-        return locationRestService.getLocations();
+        return departmentRestService.getLocations();
     }
 
     public LocationResponse getLocation(Integer id) {
-        return Optional.ofNullable(locationRestService.getLocation(id).getBody())
+        return Optional.ofNullable(departmentRestService.getLocation(id).getBody())
                 .orElseThrow(LocationNotFoundException::new);
     }
 
     public LocationResponse createLocation(LocationRequest location) {
-        LocationResponse response = locationRestService.createLocation(location).getBody();
+        LocationResponse response = departmentRestService.createLocation(location).getBody();
         return response;
     }
 }

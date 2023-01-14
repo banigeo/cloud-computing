@@ -1,6 +1,5 @@
 package com.cloudpoc.departments.repository;
 
-
 import com.cloudpoc.departments.model.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 

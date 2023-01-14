@@ -1,6 +1,5 @@
 package com.cloudpoc.departments.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

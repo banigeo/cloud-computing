@@ -1,12 +1,9 @@
 package com.banigeo.webpoc.controller;
 
 import com.banigeo.webpoc.dto.department.DepartmentRequest;
-import com.banigeo.webpoc.dto.employee.EmployeeRequest;
-import com.banigeo.webpoc.dto.job.JobRequest;
-import com.banigeo.webpoc.dto.location.LocationRequest;
 import com.banigeo.webpoc.model.Department;
-import com.banigeo.webpoc.model.Location;
 import com.banigeo.webpoc.service.DepartmentService;
+import com.banigeo.webpoc.service.LocationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +23,7 @@ import java.util.Map;
 public class DepartmentController {
 
     private DepartmentService departmentService;
+    private LocationService locationService;
 
     @GetMapping("/{name}")
     public ResponseEntity<Department> getDepartment(@PathVariable String name) {
@@ -41,7 +38,7 @@ public class DepartmentController {
     @RequestMapping("/register")
     public String registrationForm(Model model) {
         model.addAllAttributes(Map.of("department", new DepartmentRequest(),
-                "locations", new HashSet<>(departmentService.getLocations(new LocationRequest()))));
+                "locations", locationService.getLocations()));
         return "departmentRegister";
     }
 

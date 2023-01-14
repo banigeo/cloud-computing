@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 public class DepartmentController {
 
-    private CountryService countryService;
     private DepartmentService departmentService;
 
     @GetMapping("/{name}")

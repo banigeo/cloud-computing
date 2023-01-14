@@ -38,7 +38,7 @@ public class DepartmentController {
         return departmentService.getDepartments();
     }
 
-    @RequestMapping("/departmentRegister")
+    @RequestMapping("/register")
     public String registrationForm(Model model) {
         model.addAllAttributes(Map.of("department", new DepartmentRequest(),
                 "locations", new HashSet<>(departmentService.getLocations(new LocationRequest()))));

@@ -22,7 +22,7 @@ public interface DepartmentRestService {
     @GetMapping("/department/list")
     List<Department> getDepartments();
 
-    @PostMapping(value = "/department/locations")
+    @GetMapping(value = "/department/locations")
     List<Location> getLocations(@RequestBody LocationRequest location);
 
     @PostMapping(value = "/department/create")

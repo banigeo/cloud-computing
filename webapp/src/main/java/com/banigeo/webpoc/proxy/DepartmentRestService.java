@@ -2,7 +2,9 @@ package com.banigeo.webpoc.proxy;
 
 import com.banigeo.webpoc.dto.department.DepartmentRequest;
 import com.banigeo.webpoc.dto.department.DepartmentResponse;
+import com.banigeo.webpoc.dto.location.LocationRequest;
 import com.banigeo.webpoc.model.Department;
+import com.banigeo.webpoc.model.Location;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,9 @@ public interface DepartmentRestService {
     @GetMapping("/department/list")
     List<Department> getDepartments();
 
-    @PostMapping(value = "/departments")
+    @PostMapping(value = "/department/locations")
+    List<Location> getLocations(@RequestBody LocationRequest location);
+
+    @PostMapping(value = "/department/create")
     ResponseEntity<DepartmentResponse> createDepartment(@RequestBody DepartmentRequest department);
 }

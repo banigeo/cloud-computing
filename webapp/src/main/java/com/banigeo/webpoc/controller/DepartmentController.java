@@ -1,17 +1,24 @@
 package com.banigeo.webpoc.controller;
 
 import com.banigeo.webpoc.dto.department.DepartmentRequest;
+import com.banigeo.webpoc.dto.employee.EmployeeRequest;
+import com.banigeo.webpoc.dto.job.JobRequest;
+import com.banigeo.webpoc.dto.location.LocationRequest;
 import com.banigeo.webpoc.model.Department;
+import com.banigeo.webpoc.model.Location;
 import com.banigeo.webpoc.service.DepartmentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/department")
@@ -31,12 +38,19 @@ public class DepartmentController {
         return departmentService.getDepartments();
     }
 
+    @RequestMapping("/departmentRegister")
+    public String registrationForm(Model model) {
+        model.addAllAttributes(Map.of("department", new DepartmentRequest(),
+                "locations", new HashSet<>(departmentService.getLocations(new LocationRequest()))));
+        return "departmentRegister";
+    }
+
     @PostMapping("/create")
     public String create(@Valid @ModelAttribute DepartmentRequest request, BindingResult result) {
         if(result.hasErrors()){
             return "departmentRegister";
         }
         departmentService.createDepartment(request);
-        return "redirect:/department/list";
+        return "redirect:/emp/list";
     }
 }

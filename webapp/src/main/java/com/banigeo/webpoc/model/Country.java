@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity(name = "countries")
 @Data
 @NoArgsConstructor
-public class Country {
+public class  Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer countryId;

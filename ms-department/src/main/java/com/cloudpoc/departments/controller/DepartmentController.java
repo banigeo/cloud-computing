@@ -2,6 +2,7 @@ package com.cloudpoc.departments.controller;
 
 
 import com.cloudpoc.departments.model.Department;
+import com.cloudpoc.departments.model.Location;
 import com.cloudpoc.departments.service.DepartmentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DepartmentController {
 
+    private CountryService countryService;
     private DepartmentService departmentService;
 
     @GetMapping("/{name}")
@@ -51,9 +53,17 @@ public class DepartmentController {
         "locations": []
     },
      */
-    @PostMapping
+
+    @GetMapping("/locations")
+    public List<Location> getLocations() {
+        return departmentService.getLocations();
+    }
+
+    @PostMapping("/create")
     public ResponseEntity<Department> createDepartment(@Valid @RequestBody Department department) {
         Department savedDepartment = departmentService.saveDepartment(department);
         return ResponseEntity.created(URI.create("/department/" + savedDepartment.getDepartmentName())).body(savedDepartment);
     }
+
+    //public ResponseEntity<Country>
 }

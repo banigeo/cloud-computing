@@ -28,30 +28,30 @@ public interface DepartmentRestService {
     @PostMapping(value = "/department/create")
     ResponseEntity<DepartmentResponse> createDepartment(@RequestBody DepartmentRequest department);
 
-    @GetMapping(value = "/location/list")
+    @GetMapping(value = "/department/location/list")
     List<LocationResponse> getLocations();
 
-    @GetMapping(value = "/location/{id}")
+    @GetMapping(value = "/department/location/{id}")
     ResponseEntity<LocationResponse> getLocation(@PathVariable Integer id);
 
-    @PostMapping(value = "/location/create")
+    @PostMapping(value = "/department/location/create")
     ResponseEntity<LocationResponse> createLocation(@RequestBody LocationRequest location);
 
-    @GetMapping(value = "/region/list")
+    @GetMapping(value = "/department/region/list")
     List<RegionResponse> getRegions();
 
-    @GetMapping(value = "/region/{name}")
+    @GetMapping(value = "/department/region/{name}")
     ResponseEntity<RegionResponse> getRegion(@PathVariable String name);
 
-    @PostMapping(value = "/region/create/{name}")
+    @PostMapping(value = "/department/region/create/{name}")
     ResponseEntity<RegionResponse> createRegion(@PathVariable String name);
 
-    @GetMapping(value = "/country/list")
+    @GetMapping(value = "/department/country/list")
     List<CountryResponse> getCountries();
 
-    @GetMapping(value = "/country/{name}")
+    @GetMapping(value = "/department/country/{name}")
     ResponseEntity<CountryResponse> getCountry(@PathVariable String name);
 
-    @PostMapping(value = "/country/create")
+    @PostMapping(value = "/department/country/create")
     ResponseEntity<CountryResponse> createCountry(@RequestBody CountryRequest country);
 }

@@ -28,7 +28,7 @@ public class JobHistoryService {
                 t -> JobHistoryResponse.builder()
                         .startJob(t.getStart())
                         .endJob(t.getEnd())
-                        .job(t.getJobTitle().toString())
+                        .job(t.getJobTitle())
                         .salary(t.getSalary())
                         .build()
         ).collect(Collectors.toList());

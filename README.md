@@ -1,5 +1,5 @@
 # cloud-computing
-http://localhost:80/ - en user web interface load balancer <br>
+http://localhost:80/ - end user web interface load balancer <br>
 http://localhost:9016/ - end user web interface <br>
 http://localhost:9017/ - end user web interface <br>
 http://localhost:8071/ - naming server <br>

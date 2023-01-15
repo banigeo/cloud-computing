@@ -25,7 +25,7 @@
                         <select id="region" name="region" th:field="*{region}">
                             <option
                                     th:each="region: ${regions}"
-                                    th:value="${region.regionName}" th:text="${region.regionName}">
+                                    th:value="${region.name}" th:text="${region.name}">
                             </option>
                         </select>
                     </div>

@@ -7,6 +7,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 @NoArgsConstructor
-public class LocationResponse {
+public class LocationResponse extends LocationRequest {
     private Integer id;
 }

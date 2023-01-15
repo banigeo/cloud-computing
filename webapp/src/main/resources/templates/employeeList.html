@@ -83,6 +83,13 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-primary" role="button" th:href="@{'/department/list'}">See Departments</a>
+        </div>
+    </div>
+</div>
 
 <div class="col-md-3">
     <form th:action="@{/logout}" method="POST">

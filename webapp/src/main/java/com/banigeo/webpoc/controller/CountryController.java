@@ -2,6 +2,7 @@ package com.banigeo.webpoc.controller;
 
 import com.banigeo.webpoc.dto.department.country.CountryRequest;
 import com.banigeo.webpoc.service.CountryService;
+import com.banigeo.webpoc.service.RegionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +24,11 @@ import java.util.Map;
 public class CountryController {
 
     private CountryService countryService;
+    private RegionService regionService;
 
     @GetMapping("/list")
     public ModelAndView countryList() {
-        ModelAndView mv = new ModelAndView("departmentList");
+        ModelAndView mv = new ModelAndView("countryList");
         mv.addAllObjects(Map.of("countries", countryService.getCountries()));
         return mv;
     }
@@ -34,7 +36,8 @@ public class CountryController {
     @RequestMapping("/register")
     public String registrationForm(Model model) {
         model.addAllAttributes(Map.of("country", new CountryRequest(),
-                "countries", countryService.getCountries()));
+                "countries", countryService.getCountries(),
+                "regions", regionService.getRegions()));
         return "countryRegister";
     }
 

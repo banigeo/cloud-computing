@@ -7,6 +7,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 @NoArgsConstructor
-public class CountryResponse {
+public class CountryResponse extends CountryRequest {
     private Integer id;
 }

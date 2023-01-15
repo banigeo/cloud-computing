@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <body>
-<form th:object="${region}" th:action="@{/region/create}" method="post" enctype="multipart/form-data">
+<form th:object="${country}" th:action="@{/country/create}" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading" style="background-color:lightgray;">
@@ -25,7 +25,7 @@
                         <select id="region" name="region" th:field="*{region}">
                             <option
                                     th:each="region: ${regions}"
-                                    th:value="${region.name}" th:text="${region.name}">
+                                    th:value="${region.regionName}" th:text="${region.regionName}">
                             </option>
                         </select>
                     </div>

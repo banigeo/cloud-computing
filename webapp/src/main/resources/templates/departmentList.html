@@ -21,8 +21,8 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
             th:class="${stat.odd}? 'table-light':'table-dark'"
         >
             <td th:text="${department.departmentName}"></td>
-            <td th:text="${department.location.country.name}"></td>
-            <td th:text="${department.location.country.region.name}"></td>
+            <td th:text="${department.location.country.countryName}"></td>
+            <td th:text="${department.location.country.region.regionName}"></td>
         </tr>
     </table>
 

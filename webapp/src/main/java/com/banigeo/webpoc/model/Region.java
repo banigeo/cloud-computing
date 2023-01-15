@@ -13,10 +13,10 @@ public class Region {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer regionId;
 
-    private String name;
+    private String regionName;
 
     public Region(String name) {
-        this.name = name;
+        this.regionName = name;
     }
 
 }

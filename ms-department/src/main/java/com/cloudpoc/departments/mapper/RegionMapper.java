@@ -11,7 +11,7 @@ public class RegionMapper {
     public RegionResponse fromEntityToResponse(Region entity) {
         RegionResponse rr = new RegionResponse();
         rr.setId(entity.getRegionId());
-        rr.setName(entity.getName());
+        rr.setName(entity.getRegionName());
         return rr;
     }
 

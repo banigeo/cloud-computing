@@ -13,7 +13,7 @@ public class CountryMapper {
     public CountryResponse fromEntityToResponse(Country entity) {
         CountryResponse cr = new CountryResponse();
         cr.setId(entity.getCountryId());
-        cr.setName(entity.getName());
+        cr.setName(entity.getCountryName());
         cr.setRegion(entity.getRegion());
         return cr;
     }

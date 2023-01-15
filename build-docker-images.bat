@@ -16,5 +16,7 @@ docker build -t emp-microservice:0.0.1-SNAPSHOT . && ^
 cd ../webapp && ^
 mvn -DskipTests clean install && ^
 docker build -t webapp:0.0.1-SNAPSHOT . && ^
+cd ../load-balancer && ^
+docker build -t load-balancer:0.0.1-SNAPSHOT . && ^
 cd ..
 

@@ -169,10 +169,12 @@ services:
       MYSQL_TCP_PORT: 3319
 
   webapp:
-    container_name: webapp
+    restart: on-failure
     image: webapp:0.0.1-SNAPSHOT
+    deploy:
+      replicas: 2
     ports:
-      - "8090:8090"
+      - "9016-9017:8090"
     networks:
       - inner-network
     depends_on:
@@ -189,3 +191,13 @@ services:
       spring.datasource.password: password
       spring.jpa.database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
       spring.jpa.hibernate.ddl-auto: update
+      
+  load-balancer:
+    container_name: load-balancer
+    image: load-balancer:0.0.1-SNAPSHOT
+    ports:
+      - "80:80"
+    networks:
+      - inner-network
+    depends_on:
+      - webapp

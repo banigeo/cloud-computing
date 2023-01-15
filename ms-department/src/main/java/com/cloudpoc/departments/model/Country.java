@@ -18,10 +18,10 @@ public class Country {
     @JoinColumn(name = "region_id")
     private Region region;
 
-    String name;
+    String countryName;
 
     public Country(Region region, String name) {
         this.region = region;
-        this.name = name;
+        this.countryName = name;
     }
 }

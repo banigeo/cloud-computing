@@ -38,12 +38,12 @@ public class InitialLoader implements CommandLineRunner {
 
         log.info("Setup regions ");
 
-        Set<String> existingRegions = regionRepository.findAll().stream().map(Region::getName).collect(Collectors.toSet());
-        Set<String> insertingRegions = regions.stream().map(Region::getName).collect(Collectors.toSet());
+        Set<String> existingRegions = regionRepository.findAll().stream().map(Region::getRegionName).collect(Collectors.toSet());
+        Set<String> insertingRegions = regions.stream().map(Region::getRegionName).collect(Collectors.toSet());
         insertingRegions.removeAll(existingRegions);
 
         regionRepository.saveAll(regions.stream()
-                .filter(t -> insertingRegions.contains(t.getName()))
+                .filter(t -> insertingRegions.contains(t.getRegionName()))
                 .collect(Collectors.toList()));
 
         log.info("Setup countries ");
@@ -53,12 +53,12 @@ public class InitialLoader implements CommandLineRunner {
                 , new Country(regions.get(1), "USA")
                 , new Country(regions.get(3), "Egypt"));
 
-        Set<String> existingCountries = countryRepository.findAll().stream().map(Country::getName).collect(Collectors.toSet());
-        Set<String> insertingCountries = countries.stream().map(Country::getName).collect(Collectors.toSet());
+        Set<String> existingCountries = countryRepository.findAll().stream().map(Country::getCountryName).collect(Collectors.toSet());
+        Set<String> insertingCountries = countries.stream().map(Country::getCountryName).collect(Collectors.toSet());
         insertingCountries.removeAll(existingCountries);
 
         countryRepository.saveAll(countries.stream()
-                .filter(t-> insertingCountries.contains(t.getName()))
+                .filter(t-> insertingCountries.contains(t.getCountryName()))
                 .collect(Collectors.toList()));
 
         log.info("Setup locations ");
